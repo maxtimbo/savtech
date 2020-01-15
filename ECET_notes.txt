@@ -1,0 +1,20 @@
+ We will be writing a calculator in C++ by the end of the semester.
+
+inpout == cin
+output == cout
+
+c == console
+
+Libraries are known as "Preprocessor Directives"
+
+"Using namespace std, "
+
+int == intiger
+
+int main() {
+
+    cout << "Display Something here..." << endl;
+
+    cout << "Blah blah " << endl;
+    return 0;
+}
