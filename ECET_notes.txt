@@ -18,3 +18,11 @@ int main() {
     cout << "Blah blah " << endl;
     return 0;
 }
+
+write program to convert C to F and F to C
+
+C to F = 9/5(c)+32
+
+F to C = (F-32)5/9
+
+

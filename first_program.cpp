@@ -4,10 +4,10 @@ using namespace std;
 int main() {
     int a, b, c, d, e;
     string color;
-    myfavorite_number = 5;
-    V2 = 5;
-    get_the_result = myfavorite_number + V2;
-    cout << myfavorite_number << " + " <<  V2  <<  "\n" <<  get_the_result;
+    a = 5;
+    b = 5;
+    c = a + b;
+    cout << a << " + " <<  b  <<  "\n" <<  c;
     cout << "\nHello world! \n";
     cout << "This is some more text \n";
     cout << "What is your favorite color? ";
