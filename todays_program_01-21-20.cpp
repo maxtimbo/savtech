@@ -3,9 +3,10 @@
 using namespace std;
 
 //Define constants
-#define PI 3.141592
+//#define PI 3.141592
 
 int main() {
+    const double PI = 3.141592;
     double x,y;
     cout << "Please enter a number to find the Square Root: ";
     cin >> x;
@@ -17,7 +18,7 @@ int main() {
     float r;
     cin >> r;
     double area = PI*pow(r, 2);
-    cout.precision(20);
+    cout.precision(2);
     cout << "The area of the circle with the radius "<<r<<" is "<<area<<endl;
     //cout << "Okay, let's do a list of numbers\nPlease enter a number: ";
     //double z[];
