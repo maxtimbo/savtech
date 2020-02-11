@@ -21,16 +21,19 @@ int main() {
          << " [y/n]"<<endl;
     char answer;
     cin >> answer;
+
     if (answer == 'y') {
         nerd_fonts = true;
     } else if (answer == 'n') {
         nerd_fonts = false;
     }
+
     system("clear");
     cout << "Enter a voltage: "<<endl;
     cin >>voltage;
     ( voltage >= 20 ) ? lamp_status = true : lamp_status = false;
     system("clear");    
+
     if (nerd_fonts) {
         if (lamp_status) {
             cout<<repeat(newline, 10)<<repeat(space, 20)<<""<<repeat(newline, 10);
