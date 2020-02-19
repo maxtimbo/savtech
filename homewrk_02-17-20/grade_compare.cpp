@@ -36,26 +36,24 @@ int main() {
         cout<<"Enter "<<student_name<<"'s score:"<<endl;
         cin>>score;
     } while (is_valid(score) == false);
-    char letter_grade = det(score);
-    switch(letter_grade) {
-        case 'A':
-            cout<<student_name<<" scored an "<<letter_grade<<" on the assignment. Great job!"<<endl;
+    switch(score) {
+        case 90 ... 100:
+            cout<<student_name<<" scored an "<<det(score)<<"."<<endl;
             break;
-        case 'B':
-            cout<<student_name<<" needs improvement. They scored well with a "<<letter_grade<<". but could do better."<<endl;
+        case 80 ... 89:
+            cout<<student_name<<" scored a "<<det(score)<<"."<<endl;
             break;
-        case 'C':
-            cout<<"Welp, "<<student_name<<" isn't failing with a "<<letter_grade<<". But they may consider getting a tutor."<<endl;
+        case 70 ... 79:
+            cout<<student_name<<" scored a "<<det(score)<<"."<<endl;
             break;
-        case 'D':
-            cout<<student_name<<" is technically failing with a "<<letter_grade<<". Give them a firm talking-to."<<endl;
+        case 60 ... 69:
+            cout<<student_name<<" scored a "<<det(score)<<"."<<endl;
             break;
-        case 'F':
-            cout<<student_name<<" is failing. They should consider dropping the class or studying harder. An "<<letter_grade
-                <<" is not going to work at all."<<endl;
+        case 0 ... 59:
+            cout<<student_name<<" scored a "<<det(score)<<"."<<endl;
             break;
         default:
-            cout<<"Something went wrong. An invalid letter grade was entered."<<endl;
+            cout<<"Invalid Score."<<endl;
             break;
     }
     return 0;
