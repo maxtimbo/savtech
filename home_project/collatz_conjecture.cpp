@@ -1,30 +1,20 @@
 #include <iostream>
 using namespace std;
 
-int main() {
-    int n;
-    cout<<"Enter a positive number: "<<endl;
-    cin>>n;
-    bool valid_number;
-    
-    if (n < 0) {
-        valid_number = false;
-    } else { 
-        valid_number = true;
+bool is_valid(int n) {
+    bool y_n;
+    if (n <= 0) {
+        y_n = false;
+        int n;
+        //cin.clear();
+    } else {
+        y_n = true;
     }
+    return y_n;
+}
 
-    while (valid_number == false) {
-        cout<<"Please enter a positive number: "<<endl;
-        cin>>n;
-        if (n < 0) {
-            valid_number = false;
-        } else {
-            valid_number = true;
-        }
-    }
-    
+int collatz_conjecture(int n) {
     int step_count = 0;
-
     while (n != 1) {
         int x = n % 2;
         if (x == 0) {
@@ -36,8 +26,21 @@ int main() {
         }
         ++step_count;
     }
-    
     cout<<"The conjecture took "<<step_count<<" steps"<<endl;
+    return n;
+}
+
+
+int main() {
+    long long int n;
+    cout<<"Enter a positive number: "<<endl;
+    cin>>n;
+    while (is_valid(n) == false) {
+        cout<<"Please enter a valid number: "<<endl;
+        cin>>n;
+    }
+
+    collatz_conjecture(n);
     
     return 0;
 }
