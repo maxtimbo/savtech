@@ -35,7 +35,7 @@ int main() {
 
 void for_2i() {
     int x = 0;
-    for (int i = 1; i < 10; ++i) {
+    for (int i = 1; i <= 10; ++i) {
         x += 2*i+1;
     }
     cout<<"x = "<<x<<endl;
@@ -44,7 +44,7 @@ void for_2i() {
 void while_2i() {
     int i = 1;
     int x = 0;
-    while (i < 10) {
+    while (i <= 10) {
         x += 2 * i + 1;
         ++i;
     }
