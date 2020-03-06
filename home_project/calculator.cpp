@@ -14,6 +14,12 @@ int main(void) {
     int nu, selection;
     cout<<"Enter a number: "<<endl;
     cin>>nu;
+    if (nu < 0){
+        cout<<"\nNegative numbers are not allowed."<<endl
+            <<"Converting "<<nu;
+        nu = nu * -1;
+        cout<<" to "<<nu<<endl<<endl;
+    }
     cout<<"Select a program: "<<endl<<endl
         <<"1. Run Sum of Numbers as for loop"<<endl
         <<"2. Run Sum of Numbers as while loop"<<endl
