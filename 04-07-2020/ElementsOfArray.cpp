@@ -4,13 +4,13 @@ using namespace std;
 //Write a function called getarray
 //print array
 //sum (to add the elements in your array)
-//
 
-const int size = 100;
+const int size = 100; //Define constant int size for the size of the array
 
+//Declare functions, we will define them later.
 void getArray(double[], int&);
-void printArray(const double[], const int);
-double sumArray(const double[], const int);
+void printArray(double[], int);
+double sumArray(double[], int);
 
 int main() {
     double moon[size];
@@ -23,25 +23,30 @@ int main() {
     return 0;
 }
 
-void getArray(double moon[], int& n) {
+//Here we define the functions.
+//First we are defining getArray to get the Array from the user
+void getArray(double get_array[], int& iterator) {
     cout<<"Enter numbers"<<endl;
-    for(n = 0; n < size; n++) {
-        cout<<n<<" : ";
-        cin>>moon[n];
-        if(moon[n]==0) break;
+    for(iterator = 0; iterator < size; iterator++) {
+        cout<<iterator<<" : ";
+        cin>>get_array[iterator];
+        if(get_array[iterator]==0) break;
     }
 }
 
-void printArray(const double moon[], const int n) {
-    for(int i = 0; i < n; i++) {
-        cout<<'\t'<<i<<" : "<<moon[i]<<endl;
+//Now we print the array
+void printArray(double array_print[], int size_of_array) {
+    for(int i = 0; i < size_of_array; i++) {
+        cout<<'\t'<<i<<" : "<<array_print[i]<<endl;
     }
 }
 
-double sumArray(const double moon[], const int n) {
+//Now we are getting the sum of the array and returning
+//it as a double datatype
+double sumArray(double sum_array[], int size_array) {
     double sum = 0;
-    for(int j = 0; j < n; j++) {
-        sum += moon[j];
+    for(int i = 0; i < size_array; i++) {
+        sum += sum_array[i];
     }
     return sum;    
 }
