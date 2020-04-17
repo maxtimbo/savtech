@@ -23,9 +23,9 @@ int main() {
 
 void readscore(score sc) {
     for(int s = 0; s < numstu; s++) {
-        cout << "Student "<<s+1<<":"<<endl;
+        cout << "Student "<<s+1;
         for(int q = 0; q < numqui; q++) {
-            cout<<"            score : ";
+            cout<<" quiz "<<q+1<<" score: ";
             cin>>sc[s][q];
         }
     }
@@ -33,12 +33,13 @@ void readscore(score sc) {
 
 void score_average(score sc) {
     for(int s = 0; s < numstu; s++) {
-        cout<<"               Student "<<s+1<<":"<<endl;
+        cout<<"               Student "<<s+1<<" quiz average: ";
         float sum = 0;
         for(int q = 0; q < numqui; q++) {
             sum = sum + sc[s][q];
-            cout<<"                         Average at Quiz "<<q+1<<": "<<sum/numqui<<endl;
+            //cout<<"                         Average at Quiz "<<q+1<<": "<<sum/numqui<<endl;
         }
+        cout<<sum/numqui<<endl;
     }
 }
 
