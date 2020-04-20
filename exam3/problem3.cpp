@@ -6,7 +6,7 @@ bool y_n(char ans);
 void enterContinue();
 
 int main() {
-    int moon[] = {1, 2, 3, 2, 1, 4, 3, 4, 2, 3, 1, 5};
+    int moon[] = {1, 2, 3, 2, 1, 4, 3, 4, 2, 3, 1, 5}; // I added 5 at the end to test if/else if conditions later
     int arrsize = sizeof(moon)/sizeof(moon[0]);
     char q_ans = 'y';
     int current_test;
