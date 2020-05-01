@@ -1,0 +1,4 @@
+class Moon {
+    public:
+        Moon();
+};
