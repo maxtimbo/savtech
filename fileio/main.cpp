@@ -2,23 +2,31 @@
 #include <fstream>
 #include <string>
 #include <sstream>
+#include <cstddef>
 using namespace std;
 
 #define file_in "grades.txt"
 
-void print_fin(string name[][2], float average[]);
+void print_fin(int numlines, string name[][2], double average[]);
 void nameExtract(int counter, string str, string name[][2]);
-float getAverage(string str);
-char letterGrade(float average);
+double getAverage(string str);
+char letterGrade(double average);
 
 int main() {
     ifstream in(file_in);
-    int numlines = 0;
+    if(!in) {
+        cout<<"File not found..."<<endl;
+        return 1;
+    }
+
+    // declare number of lines and iterator vars
+    int lines, i;
+    lines = 0, i = 0;
     string line;
 
     // get number of lines in the file
     while(getline(in, line)) {
-        ++numlines;
+        ++lines;
     }
     
     //start at the beginning
@@ -26,61 +34,69 @@ int main() {
     in.seekg(0, ios::beg);
 
     // define variables
-    string names[numlines][2];
+    string names[lines][2];
     
-    float aves[numlines];
-    int y;
-
-    // iterator
-    int i = 0;
+    double aves[lines];
 
     while (getline(in, line)) {
        nameExtract(i, line, names);
        aves[i] = getAverage(line); 
        i++;
     }
-    print_fin(names, aves);
+    print_fin(lines, names, aves);
     return 0;
 }
 
 void nameExtract(int counter, string str, string name[][2]) {
-    size_t temp;
-    name[counter][0] = str.substr(0, str.find_first_of(" ", 0));
-    stringstream ss(name[counter][0]);
-    ss >> temp;
-    name[counter][1] = str.substr(temp, str.find_first_of(" ", 0));
+    char space = ' ';
+    //name[counter][0] = str.substr(0, str.find_first_of(space, 0));
+    //cout<<name[counter][0];
+
+    name[counter][0] = str.substr(0, str.find_first_of(&space, 0));
+    cout<<"name_"<<name[counter][0]<<"_";
+   // size_t temp;
+    //stringstream stave(name[counter][0]);
+    //stave.seekg(0, ios::end);
+    //temp = stave.tellg();
+    size_t temp = name[counter][0].length() + 1;
+    
+    //cout<<"temp "<<temp<<"_";
+    name[counter][1] = str.substr(temp, str.find(&space));
+    
+    cout<<name[counter][1]<<"_"<<endl;
 }
 
 
-void print_fin(string name[][2], float average[]) {
+void print_fin(int numlines, string name[][2], double average[]) {
     cout<<"Student Name\tAverage Grade\tLetter Grade"<<endl;
-    for(int i = 0; i < 6; i++) {
+    for(int i = 0; i < numlines; i++) {
         cout<<name[i][0]<<' '<<name[i][1]<<"\t     "
             <<average[i]<<"%\t     "
             <<letterGrade(average[i])<<endl;
     }
 }
 
-float getAverage(string str) {
+double getAverage(string str) {
     stringstream nums;
     nums << str;
     string temp;
-    int p, y, c = 1;
-    float ave;
+    int p = 0, y = 0, c = 0;
+    double ave;
 
     while(!nums.eof()) {
         nums >> temp;
         if(stringstream(temp) >> p) {
             y += p;
-            ++c;
+            c++;
         }
-        temp = "";
+        //temp = "";
     }
-    ave = y/c;
+    //cout<<"total grades = "<<c<<endl;
+    ave = y / c;
     return ave;
 }
 
-char letterGrade(float average) {
+char letterGrade(double average) {
     char grade;
     if (average <= 59) {
         grade = 'F';
