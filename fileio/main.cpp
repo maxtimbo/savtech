@@ -48,27 +48,32 @@ int main() {
 }
 
 void nameExtract(int counter, string str, string name[][2]) {
-    char space = ' ';
-    string firstName;
-    int temp = 0;
+    size_t temp;
+    name[counter][0] = str.substr(0, str.find_first_of(" ", 0));
+    stringstream ss(name[counter][0]);
+    ss >> temp;
+    name[counter][1] = str.substr(temp, str.find_first_of(" ", 0));
+    //char space = ' ';
+    //string firstName;
+    //int temp = 0;
     //name[counter][0] = str.substr(0, str.find_first_of(space, 0));
     //cout<<name[counter][0];
 
-    name[counter][0] = str.substr(0, str.find_first_of(&space, 0));
-    firstName = name[counter][0];
-    cout<<"name_"<<firstName<<"_";
+    //name[counter][0] = str.substr(0, str.find_first_of(&space, 0));
+    //firstName = name[counter][0];
+    //cout<<"name_"<<firstName<<"_";
     //size_t temp;
     //stringstream stave(name[counter][0]);
     //stave.seekg(0, ios::end);
     //temp = stave.tellg();
-    temp = firstName.length();
-    int k = str.find_first_of(&space, temp, 2);
-    cout<<"k = "<<k<<"_"; 
+    //temp = firstName.length();
+    //int k = str.find_first_of(&space, temp, 2);
+    //cout<<"k = "<<k<<"_"; 
     
-    cout<<"temp "<<temp<<"_";
-    name[counter][1] = str.substr(temp, k);
+    //cout<<"temp "<<temp<<"_";
+    //name[counter][1] = str.substr(temp, k);
     
-    cout<<name[counter][1]<<"_"<<endl;
+    //cout<<name[counter][1]<<"_"<<endl;
 }
 
 
