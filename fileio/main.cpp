@@ -49,19 +49,24 @@ int main() {
 
 void nameExtract(int counter, string str, string name[][2]) {
     char space = ' ';
+    string firstName;
+    int temp = 0;
     //name[counter][0] = str.substr(0, str.find_first_of(space, 0));
     //cout<<name[counter][0];
 
     name[counter][0] = str.substr(0, str.find_first_of(&space, 0));
-    cout<<"name_"<<name[counter][0]<<"_";
-   // size_t temp;
+    firstName = name[counter][0];
+    cout<<"name_"<<firstName<<"_";
+    //size_t temp;
     //stringstream stave(name[counter][0]);
     //stave.seekg(0, ios::end);
     //temp = stave.tellg();
-    size_t temp = name[counter][0].length() + 1;
+    temp = firstName.length();
+    int k = str.find_first_of(&space, temp, 2);
+    cout<<"k = "<<k<<"_"; 
     
-    //cout<<"temp "<<temp<<"_";
-    name[counter][1] = str.substr(temp, str.find(&space));
+    cout<<"temp "<<temp<<"_";
+    name[counter][1] = str.substr(temp, k);
     
     cout<<name[counter][1]<<"_"<<endl;
 }
