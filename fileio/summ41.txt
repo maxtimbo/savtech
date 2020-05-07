@@ -1,0 +1,7 @@
+Student Name		Average Grade	Letter Grade
+Vargus Varnish		73%	     C
+Flupint Flargarish	85%	     B
+Whoami Anyways		75%	     C
+Warren Po		97%	     A
+Pete Bootie		88%	     B
+Larry Byrd		89%	     B

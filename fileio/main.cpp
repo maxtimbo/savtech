@@ -48,11 +48,13 @@ int main() {
 }
 
 void nameExtract(int counter, string str, string name[][2]) {
-    size_t temp;
-    name[counter][0] = str.substr(0, str.find_first_of(" ", 0));
-    stringstream ss(name[counter][0]);
-    ss >> temp;
-    name[counter][1] = str.substr(temp, str.find_first_of(" ", 0));
+    stringstream ss(str);
+    ss >> name[counter][0] >> name[counter][1];
+    //size_t temp;
+    //name[counter][0] = str.substr(0, str.find_first_of(" ", 0));
+    //stringstream ss(name[counter][0]);
+    //ss >> temp;
+    //name[counter][1] = str.substr(temp, str.find_first_of(" ", 0));
     //char space = ' ';
     //string firstName;
     //int temp = 0;
